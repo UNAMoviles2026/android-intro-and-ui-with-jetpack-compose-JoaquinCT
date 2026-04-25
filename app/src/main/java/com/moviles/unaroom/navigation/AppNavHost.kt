@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.moviles.unaroom.ui.screens.classrooms.ClassroomsScreen
+import com.moviles.unaroom.ui.screens.login.LoginScreen
 
 @Composable
 fun AppNavHost(innerPadding: PaddingValues) {
@@ -16,13 +17,22 @@ fun AppNavHost(innerPadding: PaddingValues) {
 
     NavHost(
         navController = navController,
-        startDestination = AppDestinations.CLASSROOMS,
+        startDestination = AppDestinations.LOGIN,
         modifier = Modifier
             .fillMaxSize()
             .padding(innerPadding)
     ) {
+        composable(route = AppDestinations.LOGIN) {
+            LoginScreen(
+                onLoginClick = {
+                    navController.navigate(AppDestinations.CLASSROOMS)
+                }
+            )
+        }
+
         composable(route = AppDestinations.CLASSROOMS) {
             ClassroomsScreen()
         }
     }
 }
+
