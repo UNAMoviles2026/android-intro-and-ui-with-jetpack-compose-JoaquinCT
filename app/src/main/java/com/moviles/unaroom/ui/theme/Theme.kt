@@ -36,6 +36,7 @@ private val LightColorScheme = lightColorScheme(
     error = AppError
 )
 
+
 @Composable
 fun UnaRoomTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
